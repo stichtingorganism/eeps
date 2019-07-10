@@ -27,7 +27,7 @@ Because the EEPs are maintained as text files in a versioned repository,
 their revision history is the historical record of the feature proposal.
 
 This document is based on the work done by Luke Dashjr with
-`BIP 2 <https://github.com/bitcoin/bips>`__ and Daira Hopwood with
+`BIP 2 <https://github.com/bitcoin/bips>`__ and Daira Hopwood & Josh Cincinnati with
 `ZIP 0 <https://github.com/zcash/zips/blob/master/zip-0000.rst>`__.
 
 
