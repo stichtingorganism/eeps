@@ -8,8 +8,27 @@
   Created: 2019-07-09
   License: BSD-2-Clause
 
+
 Abstract
 ========
+
+An Euka Evolution Proposal (EEP) is a design document providing
+information to the Organism community, or describing a new feature for
+Euka or its processes or environment. The EEP should provide a concise
+technical specification of the feature and a rationale for the feature.
+
+We intend EEPs to be the primary mechanism for proposing new features,
+for collecting community input on an issue, and for documenting the
+design decisions that have gone into Euka. The author(s) of the EEP
+(known as Owners in this document) are responsible for building
+consensus within the community and documenting dissenting opinions.
+
+Because the EEPs are maintained as text files in a versioned repository,
+their revision history is the historical record of the feature proposal.
+
+This document is based on the work done by Luke Dashjr with
+`BIP 2 <https://github.com/bitcoin/bips>`__ and Daira Hopwood with
+`ZIP 0 <https://github.com/zcash/zips/blob/master/zip-0000.rst>`__.
 
 
 
