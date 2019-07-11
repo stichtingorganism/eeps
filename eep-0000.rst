@@ -49,7 +49,7 @@ reasons. The first step should be to search past discussions to see if
 an idea has been considered before, and if so, what issues arose in its
 progression. After investigating past work, the best way to proceed is
 by posting about the new idea to the `Organism Community Forum
-<>`__.
+<https://>`__.
 
 Vetting an idea publicly before going as far as writing a EEP is meant
 to save both the potential Owner and the wider community time. Asking
@@ -67,7 +67,7 @@ has any chance of acceptance, a draft EEP should be presented to the
 This gives the Owner a chance to flesh out the draft EEP to make it
 properly formatted, of high quality, and to address additional concerns
 about the proposal. Following a discussion, the proposal should be
-submitted to the `ZIPs git repository <https://github.com/stichtingorganism/eeps>`__
+submitted to the `EEPs git repository <https://github.com/stichtingorganism/eeps>`__
 as a pull request. This draft must be written in EEP style as described
 below, and named with an alias such as
 ``eep-satoshinakamoto-livelong`` until the EEP Editors have assigned
@@ -124,6 +124,306 @@ EEP Editors
 The current EEP Editor is Stichting Organism. Overtime Editors may
 be selected by consensus among the current Editors & Community input. 
 
+EEP Editor Responsibilities & Workflow
+--------------------------------------
+
+The EEP Editors subscribe to the `Organism Community Forum.
+<https://>`__
+
+For each new EEP that comes in an Editor confirms the following:
+
+* Read the EEP to check if it is ready: sound and complete. The ideas
+  must make technical sense, even if they don't seem likely to be
+  accepted.
+* The title should accurately describe the content.
+* The EEP draft must have been sent to the Organism Community Forum or as
+  a PR to the `EEPs git repository <https://github.com/stichtingorganism/eeps>`__
+* Motivation and backward compatibility (when applicable) must be
+  addressed.
+* The licensing terms are acceptable for EEPs.
+
+If the EEP isn't ready, the editor will send it back to the Owner for
+revision, with specific instructions.
+
+Once the EEP is ready for the repository it should be submitted as a
+"pull request" to the `EEPs git repository <https://github.com/stichtingorganism/eeps>`__
+where it may get further feedback. It should not contain a EEP number,
+and should be labelled "WIP" in the pull request.
+
+The EEP Editors will:
+
+* Assign a EEP number in the pull request.
+* Merge the pull request when it is ready and remove the "WIP" label.
+
+The EEP editors monitor EEP changes and update EEP headers as
+appropriate.
+
+The EEP Editors MAY reject a proposed EEP or update to an existing EEP
+for any of the following reasons:
+
+* it violates the Euka Code of Conduct [#conduct]_ ;
+* it appears too unfocused or broad;
+* it duplicates effort in other EEPs without sufficient technical justification
+  (however, alternative proposals to address similar or overlapping problems
+  are not excluded for this reason);
+* it has manifest security flaws (including being unrealistically dependent
+  on user vigilance to avoid security weaknesses);
+* it disregards compatibility with the existing Organism blockchain or ecosystem;
+* it is manifestly unimplementable;
+* it includes buggy code, pseudocode, or algorithms;
+* it manifestly violates common expectations of a significant portion of the
+  Organism community;
+* it updates a Draft EEP to Released when there is significant community
+  opposition to its content (however, Draft EEPs explicitly may describe
+  proposals to which there is, or could be expected, significant community
+  opposition);
+* in the case of a Released EEP, the update makes a substantive change to
+  which there is significant community opposition;
+* it is dependent on a patent that could potentially be an obstacle to
+  adoption of the EEP;
+* it includes commercial advertising or spam;
+* it disregards formatting rules;
+* it makes non-editorial edits to previous entries in a EEP's Change history;
+* an update to an existing EEP extends or changes its scope to an extent
+  that would be better handled as a separate EEP;
+* a new EEP has been proposed for a category that does not reflect its content,
+  or an update would change a EEP to an inappropriate category;
+* it updates a Released EEP to Draft when the specification is already
+  implemented and has been in common use;
+* it violates any specific "MUST" or "MUST NOT" rule in this document;
+* the expressed political views of a Owner of the document are inimical
+  to the Euka Code of Conduct [#conduct]_ (except in the case of an update
+  removing that Owner);
+* it is not authorized by the stated EEP Owners;
+* it removes an Owner without their consent (unless the reason for removal
+  is directly related to a breach of the Code of Conduct by that Owner).
+
+The EEP Editors MUST NOT unreasonably deny publication of a EEP proposal
+or update that does not violate any of these criteria. If they refuse a
+proposal or update, they MUST give an explanation of which of the
+criteria were violated, with the exception that spam may be deleted
+without an explanation.
+
+Note that it is not the primary responsibility of the EEP Editors to
+review proposals for security, correctness, or implementability.
+
+Please send all EEP-related communications either by email to
+<eeps@organism.org>, or by opening an issue on the `EEPs issue
+tracker <https://github.com/stichtingorganism/eeps/issues>`__. All communications
+should abide by the Euka Code of Conduct [#conduct]_
+and follow `the GNU Kind Communication
+Guidelines <https://www.gnu.org/philosophy/kind-communication.en.html>`__
+
+EEP format and structure
+========================
+
+EEPs SHOULD be written either in reStructuredText [#rst]_ or LaTeX [#latex]_.
+In the latter case, a `Makefile` MUST be provided to build (at least) a
+PDF version of the document.
+
+Each EEP SHOULD have the following parts:
+
+* Preamble -- Headers containing metadata about the EEP (`see
+  below <#eep-header-preamble>`__).
+  The License field of the preamble indicates the licensing terms,
+  which MUST be acceptable according to `the EEP licensing requirements <#eep-licensing>`__.
+
+* Terminology -- Definitions of technical or non-obvious terms used
+  in the document.
+
+* Abstract -- A short (~200 word) description of the technical issue
+  being addressed.
+
+* Motivation -- The motivation is critical for EEPs that want to change
+  the Euka protocol. It should clearly explain why the existing
+  protocol is inadequate to address the problem that the EEP solves.
+
+* Specification -- The technical specification should describe the
+  interface and semantics of any new feature. The specification should be
+  detailed enough to allow competing, interoperable implementations for
+  any of the current Organism platforms.
+
+* Rationale -- The rationale fleshes out the specification by
+  describing what motivated the design and why particular design
+  decisions were made. It should describe alternate designs that were
+  considered and related work. The rationale should provide evidence of
+  consensus within the community and discuss important objections or
+  concerns raised during discussion.
+
+* Security and privacy considerations -- If applicable, security
+  and privacy considerations should be explicitly described, particularly
+  if the EEP makes explicit trade-offs or assumptions. For guidance on
+  this section consider `RFC 3552 <https://tools.ietf.org/html/rfc3552>`__.
+  as a starting point.
+
+* Reference implementation -- Literal code implementing the EEP's
+  specification, and/or a link to the reference implementation of
+  the EEP's specification. The reference implementation must be
+  completed before any EEP is given status “Implemented”, but it
+  generally need not be completed before the EEP is accepted into
+  Proposed.
+
+EEP header preamble
+-------------------
+
+Each EEP must begin with an RFC 822-style header preamble. The following
+header fields are REQUIRED::
+
+  EEP:
+  Title:
+  Owners:
+  Status:
+  Category:
+  Created:
+  License:
+
+The following additional header fields are OPTIONAL::
+
+  Discussions-To:
+  Network Upgrade:
+  Obsoleted by:
+  Updated by:
+  Obsoletes:
+  Updates:
+
+The Owners header lists the names and email addresses of all the
+Owners of the EEP. The format of the Owners header value SHOULD be::
+
+  Random J. User <address@dom.ain>
+
+If there are multiple Owners, each should be on a separate line.
+
+While a EEP is in private discussions (usually during the initial Draft
+phase), a Discussions-To header will indicate the URL where the EEP is
+being discussed. No Discussions-To header is necessary if the EEP is being
+discussed privately with the Owner.
+
+The Category header specifies the type of EEP: Consensus, Standards Track,
+Informational, or Process.
+
+The Created header records the date that the EEP was submitted.
+Dates should be in yyyy-mm-dd format, e.g. 2001-08-14.
+
+Auxiliary Files
+---------------
+
+EEPs may include auxiliary files such as diagrams. Auxiliary files
+should be included in a subdirectory for that EEP; that is, for any EEP
+that requires more than one file, all of the files SHOULD be in a
+subdirectory named eep-XXXX.
+
+EEP categories
+==============
+
+There are several kinds of EEP:
+
+* A Consensus EEP describes a change that affects the consensus protocol
+  followed by all Euka implementations.
+
+* A Standards Track EEP describes any non-consensus change that affects
+  most or all Euka implementations, such as a change to the network
+  protocol, or any change or addition that affects the interoperability
+  of applications using Orangism.
+
+Consensus and Standards Track EEPs consist of two parts: a design document
+and a reference implementation.
+
+* An Informational EEP describes Euka design issues, or general
+  guidelines or information for the Organism community, that do not fall
+  into either of the above categories. Informational EEPs do not
+  necessarily represent a Organism community consensus or recommendation,
+  so users and implementers are free to ignore Informational EEPs or
+  follow their advice.
+
+* A Process EEP describes a process surrounding Euka, or proposes a
+  change to (or an event in) a process. Process EEPs are like Standards
+  Track EEPs but apply to areas other than the Euka protocol itself.
+  They may propose an implementation, but not to Darwin's codebase; they
+  often require community consensus; unlike Informational EEPs, they
+  are more than recommendations, and users are typically not free to
+  ignore them. Examples include procedures, guidelines, changes to the
+  decision-making process, and changes to the tools or environment used
+  in Euka development.
+
+New categories may be added by consensus among the EEP Editors.
+
+EEP Status Field
+================
+
+* Draft: All initial EEP submissions have this status.
+
+* Withdrawn: If the Owner decides to remove the EEP from
+  consideration by the community, they may set the status to Withdrawn.
+
+* Active: Typically only used for Process/Informational EEPs, achieved
+  once rough consensus is reached in PR/forum posts from Draft Process EEP.
+
+* Proposed: Typically the stage after Draft, added to a EEP after
+  consideration, feedback, and rough consensus from the community. The EEP
+  Editors must validate this change before it is approved.
+
+* Rejected: The status when progress hasn't been made on the EEP in one
+  year. Can revert back to Draft/Proposed if the Owner resumes work
+  or resolves issues preventing consensus.
+
+* Implemented: When a Consensus or Standards Track EEP has a working
+  reference implementation but before activation on the Organism network.
+
+* Final: When a Consensus or Standards Track EEP is both implemented
+  and activated on the Organism network.
+
+* Obsolete: The status when a EEP is no longer relevant (typically when
+  superseded by another EEP).
+
+More details on the status workflow in the section below.
+
+Specification
+-------------
+
+Owners of a EEP may decide on their own to change the status between
+Draft or Withdrawn.
+
+A EEP may only change status from Draft (or Rejected) to Proposed, when
+the Owner deems it is complete and there is rough consensus on the
+forums, validated by Stichting Organism and other Editors. One Editor will not suffice -- there needs to be consensus
+among the Editors. If it's a Standards Track EEP, upon changing status to
+Proposed the Editors will add the optional ``Network Upgrade`` header
+to the preamble, indicating the intent for the EEP to be implemented in
+the specified network upgrade. (All ``Network Upgrade`` schedules will be
+distributed via the Organism Community Forum by the Editors.)
+
+A Standards Track EEP may only change status from Proposed to
+Implemented once the Owner provides an associated reference
+implementation, typically in the period after the network upgrade's
+specification freeze but before the implementation audit. If the Owner
+misses this deadline, the Editors or Owner(s) may choose to update
+the ``Network Upgrade`` header to target another upgrade, at their
+discretion.
+
+EEPs should be changed from Draft or Proposed status, to Rejected
+status, upon request by any person, if they have not made progress in
+one year. Such a EEP may be changed to Draft status if the Owner
+provides revisions that meaningfully address public criticism of the
+proposal, or to Proposed status if it meets the criteria required as
+described in the previous paragraph.
+
+A Consensus or Standards Track EEP becomes Final when its associated
+network upgrade or other protocol change is activated on Organism's mainnet.
+
+A Process or Informational EEP may change status from Draft to Active
+when it achieves rough consensus on the forum or PR. Such a proposal is
+said to have rough consensus if it has been open to discussion on the
+forum or GitHub PR for at least one month, and no person maintains
+any unaddressed substantiated objections to it. Addressed or obstructive
+objections may be ignored/overruled by general agreement that they have
+been sufficiently addressed, but clear reasoning must be given in such
+circumstances.
+
+When an Active or Final EEP is no longer relevant, its status may be
+changed to Obsolete. This change must also be objectively verifiable
+and/or discussed. Final EEPs may be updated; the specification is still
+in force but modified by another specified EEP or EEPs (check the
+optional Updated-by header).
 
 EEP Comments
 ============
