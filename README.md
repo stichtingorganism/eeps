@@ -1,4 +1,4 @@
-# eeps
+# eeps [![Gitter](https://badges.gitter.im/stichtingorganism/community.svg)](https://gitter.im/stichtingorganism/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 Specifications and Ideas💡 for the
 [Euka Agreement Protocol](https://euka.io/).
